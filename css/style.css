@@ -1,0 +1,56 @@
+body {
+  background-image: url(../img/bg.png);
+}
+
+/*.container{
+  margin-left: auto;
+  margin-right: auto;
+
+}*/
+
+.hungerlogo{
+  vertical-align: middle;
+  text-align: center;
+}
+
+div.col-md-2.landing{
+  left: 42%;
+}
+
+.container.react{
+  width: 50%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
+
+}
+
+.center {
+  margin: auto;
+}
+
+.brand {
+  height: 170px;
+}
+/*
+.vertical-center-row{
+  display: table-cell;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.col-md-4.restlogo{
+  width: 300px;
+  height: 300px;
+}
+
+
+
+.vertical-center{
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}*/

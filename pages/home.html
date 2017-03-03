@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <h3>Register:</h3>
+    <form action="chipotle.php" method="post" name="valChip" onsubmit="return validateChipotle()">
+      <div class="row">
+        <div class="col-md-6">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" id="name" name="name">
+        </div>
+        <div class="col-md-6">
+        <label for="name">Email</label>
+        <input class="form-control" type="text" id="token" name="token">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="meal">Current Department</label>
+            <select class="form-control" id="meal" name="meal">
+              <option value="0">-- Current Department --</option>
+              <option value="burrito">Burrito</option>
+              <option value="bowl">Bowl</option>
+              <option value="tacos">Tacos</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="meat">Current Team</label>
+            <select class="form-control" id="meat" name="meat">
+              <option value="0">-- select team --</option>
+              <option value="chicken">Chicken</option>
+              <option value="steak">Steak</option>
+              <option value="carnitas">Carnitas</option>
+              <option value="barbacoa">Barbacoa</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="form-group">
+            <label for="instructions">Additional Instructions</label>
+            <textarea class="form-control" id="instructions" name="instructions" rows="2"></textarea>
+          </div>
+          <input type="submit" class="btn btn-secondary" value="Register"></button>
+    </div>
+    </form>
+  </div>
+
+</div>

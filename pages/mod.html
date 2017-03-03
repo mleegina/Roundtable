@@ -1,0 +1,66 @@
+<div class="container">
+  <h2>MOD Pizza</h2>
+  <form action="mod.php" method="post" name="valMod" onsubmit="return validateMOD()">
+    <div class="row">
+      <div class="col-md-6">
+      <label for="name">Step 1: Enter your name</label>
+      <input class="form-control" type="text" id="name" name="name">
+      </div>
+      <div class="col-md-6">
+      <label for="name">Step 2: Enter your group token</label>
+      <input class="form-control" type="text" id="token" name="token">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="crust">Step 3: Select a crust</label>
+          <select class="form-control" id="crust" name="crust">
+            <option value="0">-- select crust --</option>
+            <option value="Original">Original</option>
+            <option value="Wheat">Wheat</option>
+            <option value="Gluten Free">Gluten Free</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="sauce">Step 4: Select a sauce</label>
+          <select class="form-control" id="sauce" name="sauce">
+            <option value="0">-- select sauce --</option>
+            <option value="MOD Red">MOD red</option>
+            <option value="MOD White">MOD white</option>
+            <option value="Pesto">Pesto</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" id ="toppings" name="toppings">
+        <div class="col-md-3">
+          <label for="t1">Step 5: Select your toppings</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Pepperoni">Pepperoni</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Italian Sausage">Italian Sausage</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Olives">Olives</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Spinach">Spinach</label></br>
+        </div>
+        <div class="col-md-3">
+          </br>
+          <label><input name= "t1[]" type="checkbox" value="Jalapenos">Jalapenos</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Artichokes">Artichokes</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Mushrooms">Mushrooms</label></br>
+          <label><input name= "t1[]" type="checkbox" value="Peppers">Peppers</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+          <label for="instructions">Additional instructions?</label>
+          <textarea class="form-control" id="instructions" name="instructions" rows="2"></textarea>
+        </div>
+        <input type="submit" class="btn btn-secondary" value="Food me!"></button>
+  </div>
+  </form>
+</div>
