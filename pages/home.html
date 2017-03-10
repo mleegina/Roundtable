@@ -1,51 +1,82 @@
 <div class="container">
-  <div class="row">
-    <h3>Register:</h3>
-    <form action="chipotle.php" method="post" name="valChip" onsubmit="return validateChipotle()">
-      <div class="row">
-        <div class="col-md-6">
-        <label for="name">Name</label>
-        <input class="form-control" type="text" id="name" name="name">
-        </div>
-        <div class="col-md-6">
-        <label for="name">Email</label>
-        <input class="form-control" type="text" id="token" name="token">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="meal">Current Department</label>
-            <select class="form-control" id="meal" name="meal">
-              <option value="0">-- Current Department --</option>
-              <option value="burrito">Burrito</option>
-              <option value="bowl">Bowl</option>
-              <option value="tacos">Tacos</option>
-            </select>
+  <div class="form">
+
+    <ul class="tab-group">
+      <li class="tab active"><a href="#signup">Sign Up</a></li>
+      <li class="tab"><a href="#login">Log In</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="signup">
+
+        <form action="/" method="post">
+
+        <div class="top-row">
+          <div class="field-wrap">
+            <label>
+              First Name<span class="req">*</span>
+            </label>
+            <input type="text" required autocomplete="off" />
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Last Name<span class="req">*</span>
+            </label>
+            <input type="text"required autocomplete="off"/>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="meat">Current Team</label>
-            <select class="form-control" id="meat" name="meat">
-              <option value="0">-- select team --</option>
-              <option value="chicken">Chicken</option>
-              <option value="steak">Steak</option>
-              <option value="carnitas">Carnitas</option>
-              <option value="barbacoa">Barbacoa</option>
-            </select>
-          </div>
+
+        <div class="field-wrap">
+          <label>
+            Email<span class="req">*</span>
+          </label>
+          <input type="email"required autocomplete="off"/>
         </div>
+
+        <div class="field-wrap">
+          <label>
+            Password<span class="req">*</span>
+          </label>
+          <input type="password"required autocomplete="off"/>
+        </div>
+
+        <button type="submit" class="button button-block"/>Register</button>
+
+        </form>
+
       </div>
 
-      <div class="row">
-          <div class="form-group">
-            <label for="instructions">Additional Instructions</label>
-            <textarea class="form-control" id="instructions" name="instructions" rows="2"></textarea>
-          </div>
-          <input type="submit" class="btn btn-secondary" value="Register"></button>
-    </div>
-    </form>
-  </div>
+      <div id="login">
+        <h1>Welcome Back!</h1>
+
+        <form action="/" method="post">
+
+          <div class="field-wrap">
+          <label>
+            Email Address<span class="req">*</span>
+          </label>
+          <input type="email"required autocomplete="off"/>
+        </div>
+
+        <div class="field-wrap">
+          <label>
+            Password<span class="req">*</span>
+          </label>
+          <input type="password"required autocomplete="off"/>
+        </div>
+
+        <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+        <button class="button button-block"/>Log In</button>
+
+        </form>
+
+      </div>
+
+    </div><!-- tab-content -->
+
+</div> <!-- /form -->
 
 </div>
+<script src="../js/index.js"></script>

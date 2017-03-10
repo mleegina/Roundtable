@@ -21,14 +21,14 @@
                controller  : 'scheduleController'
            })
 
-           .when('/modpizza', {
-               templateUrl : 'pages/mod.html',
-               controller  : 'modController'
+           .when('/login', {
+               templateUrl : 'pages/login.html',
+               controller  : 'loginController'
            })
 
            .when('/chipotle', {
-               templateUrl : 'pages/chipotle.html',
-               controller  : 'chipotleController'
+               templateUrl : 'pages/register.html',
+               controller  : 'reisterController'
            });
    });
 
@@ -39,11 +39,11 @@
    roundtable.controller('aboutController', function($scope) {
    });
 
-   roundtable.controller('chipotleController', function($scope) {
+   roundtable.controller('loginController', function($scope) {
    });
 
    roundtable.controller('scheduleController', function($scope) {
    });
 
-   roundtable.controller('modController', function($scope) {
+   roundtable.controller('registerController', function($scope) {
    });
