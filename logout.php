@@ -1,7 +1,13 @@
-<?php 
+<?php
 session_start();
-if(session_destroy()) // Destroying All Sessions
-{
-header("Location: index.php"); // Redirecting To Home Page
+
+if(isset($_SESSION['usr_id'])) {
+	session_destroy();
+	unset($_SESSION['usr_id']);
+	unset($_SESSION['usr_name']);
+	header("Location: index.php");
+} else {
+	header("Location: index.php");
 }
 ?>
+
