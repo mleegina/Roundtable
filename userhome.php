@@ -1,63 +1,88 @@
 <?php
 session_start();
 include_once 'dbconnect.php';
+$error = false;
+
+
+if (isset($_POST['schedule'])) {
+	$dates = implode(", ", $_POST['t1']);
+	// $dates = mysqli_real_escape_string($con, $_POST['lunch']);
+
+	//if (!$error) {
+	if(mysqli_query($con, "INSERT INTO availdates(userid,days) VALUES('" . $_SESSION['usr_id'] . "', '" . $dates . "')")) {
+		$successmsg = "Successfully Registered! <a href='login.php'>Click here to Login</a>";
+	}
+	// else {
+	// 			$errormsg = $_SESSION['usr_id'];
+	// 		}
+	//}
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Roundtable</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
-	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"  rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
-	<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.php">Roundtable</a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar1">
-				<ul class="nav navbar-nav navbar-right">
-					<?php if (isset($_SESSION['usr_id'])) { ?>
-						<li><p class="navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></p></li>
-						<li><a href="logout.php">Log Out</a></li>
-						<?php } else { ?>
-							<li><a href="login.php">Login</a></li>
-							<li><a href="register.php">Sign Up</a></li>
-							<?php } ?>
-						</ul>
+
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="index.php">Roundtable</a>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<?php if (isset($_SESSION['usr_id'])) { ?>
+					<a class="nav-item nav-link navbar-text">Signed in as <?php echo $_SESSION['usr_name']; ?></a>
+					<a class="nav-item nav-link" href="userhome.php">Scheduler</a>
+					<a class="nav-item nav-link" href="viewschedule.php">View Set Lunches</a>
+					<a class="nav-item nav-link" href="logout.php">Log Out</a>
+					<?php } else { ?>
+						<a class="nav-item nav-link" href="login.php">Login</a>
+						<a class="nav-item nav-link" href="register.php">Sign Up</a>
+						<?php } ?>
 					</div>
 				</div>
 			</nav>
 
 			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-md-offset-4 well">
-						<form role="form" action="schedule.php" method="post" name="lunchschedule">
+<h1>Schedule for the week</h1></br>
+				<div class="row justify-content-center">
+					<div class="col-md-4 well">
+						<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="lunchschedule">
 							<fieldset>
-								<legend>Weekly Schedule</legend>
+								<legend>Bringing lunch on...</legend>
 
-								<div class="form-group">
-									<label for="exampleSelect2">Choose Day(s) of Week</label>
-									<select multiple class="form-control" id="exampleSelect2">
-										<option name="t1">Monday</option>
-										<option name="t1">Tuesday</option>
-										<option name="t1">Wednesday</option>
-										<option name="t1">Thursday</option>
-										<option name="t1">Friday</option>
-									</select>
+								<div class="form-group" id="scheduler" name="scheduler">
+									<label for="t1">Choose Day(s) of Week</label></br>
+									<label><input name= "t1[]" type="checkbox" value="MonBring"> Monday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="TueBring"> Tuesday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="WedBring"> Wednesday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="ThurBring"> Thursday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="FriBring"> Friday</label></br>
+								</div>
+						<span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+					</div>
+					<div class="col-md-4 well">
+						<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="lunchschedule">
+							<fieldset>
+								<legend>Buying lunch on...</legend>
+
+								<div class="form-group" id="scheduler" name="scheduler">
+									<label for="t1">Choose Day(s) of Week</label></br>
+									<label><input name= "t1[]" type="checkbox" value="MonBuy"> Monday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="TueBuy"> Tuesday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="WedBuy"> Wednesday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="ThurBuy"> Thursday</label></br>
+									<label><input name= "t1[]" type="checkbox" value="FriBuy"> Friday</label></br>
 								</div>
 
 								<div class="form-group">
-									<input type="submit" name="schedule" value="schedule" class="btn btn-primary" />
+									<input type="submit" name="schedule" value="Make Schedule" class="btn btn-primary" />
 								</div>
 							</fieldset>
 						</form>
@@ -66,7 +91,8 @@ include_once 'dbconnect.php';
 				</div>
 			</div>
 
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		</body>
 		</html>

@@ -21,7 +21,7 @@ $var1 = implode(", ", $_POST['t1']);
 $sql = "INSERT INTO availdates (id, dates)
 VALUES ($_SESSION["usr_id"],'$var1')";
 if(mysqli_query($conn, $sql)){
-    readfile("pages/success.html");
+    readfile("success.html");
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 }

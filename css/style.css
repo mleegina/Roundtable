@@ -3,5 +3,9 @@ body {
 }
 
 .well {
-background: rgba(255,0,0,0.1);
+background: rgba(151,241,185,0.5);
+}
+
+.container {
+padding-top: 50px;
 }

@@ -8,9 +8,10 @@ include_once 'dbconnect.php';
 	<title>Roundtable</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	<link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
 
 	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +35,30 @@ include_once 'dbconnect.php';
 
 			<div class="container">
 				<div class="row">
-					<h1>About: </h1>
-					<p>Roundtable is an application that will allow employees in a company to meet up and grab lunch together. Often times teams will work together and get lunch together, without meeting any of their other peers who might work in different departments. This application sends out a survey that employees can fill out and will randomly assign them to a group to each lunch with, like roulette but for lunch groups. This would build camaraderie between employees and let workers meet others they may not interact with otherwise within their company. Company executives could also use the application to meet with their subordinates, which would be a great surprise for the employees and would also provide a way for the executives to hear from the front-line.
-					</p>
+					<h1>Lunch Schedule for the week:</h1>
+				</div>
+				<div class="row">
+					<table class="table table-hover">
+					  <thead>
+					    <tr>
+					      <th>First Name</th>
+					      <th>Last Name</th>
+					      <th>Day</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>Mark</td>
+					      <td>Otto</td>
+					      <td>@mdo</td>
+					    </tr>
+					    <tr>
+					      <td>Jacob</td>
+					      <td>Thornton</td>
+					      <td>@fat</td>
+					    </tr>
+					  </tbody>
+					</table>
 				</div>
 			</div>
 
